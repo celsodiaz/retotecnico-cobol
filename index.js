@@ -24,10 +24,12 @@ async function procesarCSV(rutaArchivo) {
     let conteoDebitos = 0;
     let transaccionMayor = { id: null, monto: 0 };
 
-    //variable para saltar la primera linea del archivo csv
     isFirstLine = true;
 
+    //usamos el async && await para leer datos asincronos (readline.createInterface)
     for await (const linea of rl ) {
+
+        //Condicional para no evaluar la primera linea del archivo CSV (id,tipo,monto)
         if (isFirstLine) {
             isFirstLine = false;
             continue; 
@@ -51,6 +53,7 @@ async function procesarCSV(rutaArchivo) {
 
     const balance = creditos - debitos;
 
+    //Destructuramos para utilizar codigo mas limpio
     const { id , monto} = transaccionMayor;
 
      // Mostrar en la consola el reporte (CLI)
