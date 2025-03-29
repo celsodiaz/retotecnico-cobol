@@ -12,7 +12,7 @@ if (!archivoArgumento) {
 }
 
 // guardamos la ruta al archivo CSV
-const archivoCSV = path.join(__dirname, "transacciones.csv");
+const archivoCSV = path.join(__dirname, archivoArgumento);
 
 async function procesarCSV(rutaArchivo) {
     const stream = fs.createReadStream(rutaArchivo)
