@@ -2,6 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const readline = require('readline');
 
+// Obtener el nombre del archivo desde los argumentos de la terminal
+const archivoArgumento = process.argv[2];
+
+if (!archivoArgumento) {
+    console.error("❌ Debes proporcionar el nombre del archivo CSV como argumento.");
+    console.error("Ejemplo: node index.js transacciones.csv");
+    process.exit(1);
+}
+
 // guardamos la ruta al archivo CSV
 const archivoCSV = path.join(__dirname, "transacciones.csv");
 
